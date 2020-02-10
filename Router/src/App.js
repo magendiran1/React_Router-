@@ -4,33 +4,30 @@ import './App.css';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import Homepage from './Router/Homepage'
 import Aboutpage from './Router/Aboutpage'
+import Login from './Router/Login'
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <nav>
-          
-              <Link to="/">Homepage</Link>
-              <br></br>
-          
-            <Link to="/AboutPage">AboutPage</Link>
-            </nav>
+        <div class="header">
+         <span > <Link to="/homepage">Homepage</Link>&nbsp; </span> 
+         {/* Link is  nav tool {*To* is one property of link its used for which path need put the link  } */}
+          <Link to="/AboutPage">AboutPage</Link>
         </div>
-
         <Switch>
-          <Route exact path="/">
+          {/* Switch is use the render children of the component */}
+          <Route exact path="/homepage">
+            {/* Route is nothing but its use to tell the path {exact is  used for exACT PATH } */}
             <Homepage />
           </Route>
-          <Route exact path="/AboutPage">
+          <Route exact path="/Aboutpage">
             <Aboutpage />
           </Route>
+          <Route path="/login" component={Login}></Route>
         </Switch>
 
       </Router>
-      <h1>Hello</h1>
-      <hr />
 
     </div>
   );
